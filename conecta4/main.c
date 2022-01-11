@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 // Game states
 #define PLAYING 0
@@ -22,7 +21,6 @@ void initialize_board_with_size(int *board, int size) {
 void print_board(int *board, int size) {
   for (int j = 0; j < size; j++) {
     for (int i = 0; i < size; i++) {
-      // printf(" |%d:%d;%2d:", i, j, j * size + i);
       switch (board[i * size + j]) {
       case PLAYER_X:
         printf("X ");
@@ -159,6 +157,7 @@ void game_loop(int *board, int size, int *state, int turn) {
     move = get_player_move(board, size, turn);
     
     // slide the move through the board
+    // if the column is full we won't change the state
     full = slide_move_to_bottom(board, size, move, turn) == -1 ? 1 : 0;
 
     if (!full) {
