@@ -65,7 +65,7 @@ void get_board_size(int *size) {
 }
 
 int check_if_overflows(int *board, int size, int column) {
-  return column < 0 || column > size; // || board[column] != EMPTY;
+  return column < 0 || column > size;
 }
 
 int get_player_move(int *board, int size, int turn) {
@@ -155,8 +155,7 @@ void game_loop(int *board, int size, int *state, int turn) {
     full = 0;
 
     move = get_player_move(board, size, turn);
-    
-    // slide the move through the board
+
     // if the column is full we won't change the state
     full = slide_move_to_bottom(board, size, move, turn) == -1 ? 1 : 0;
 
