@@ -29,7 +29,7 @@ void determine_if_kangaroos_meet(kangaroo *k1, kangaroo *k2) {
   int k1_pos = k1->start_pos,
       k2_pos = k2->start_pos;
 
-  int i = 0;
+  int i = (k1_pos < k2_pos) ? k1_pos : k2_pos;
   while (k1_pos != k2_pos && i < sizeof(int)) {
     i++;
     k1_pos += k1->jump_size;
