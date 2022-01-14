@@ -67,3 +67,36 @@ void get_line(int *arr, char *size) {
 char x = '9';
 int y = x - '0';    //=> int:9
 ```
+
+## Typedefs
+Tic-tac-toe structure example
+
+```c
+typedef enum {
+  EMPTY,
+  X,
+  O
+} Cell;
+
+typedef enum {
+  PLAYING,
+  X_WON,
+  O_WON,
+  DRAW
+} Game_state;
+
+#define GRID_SIZE 3
+
+typedef struct {
+  Cell grid[GRID_SIZE * GRID_SIZE];
+  Game_state state;
+} Game;
+```
+
+## Terminal color codes
+From 31–36, with 0 for reset
+```c
+#define RED_COLOR "\033[0;31m"
+...
+#define RESET "\033[0;0m"
+```
