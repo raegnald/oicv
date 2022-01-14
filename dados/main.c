@@ -18,11 +18,9 @@ void get_dices(unsigned int *dices, char *prompt) {
   fgets(line, SIZE*5, stdin);
 
   token = strtok(line, " ");
-  int i = 0;
-  while (token != NULL) {
+  for (int i = 0; i < SIZE && token != NULL; i++) {
     dices[i] = atoi(token);
     token = strtok(NULL, " ");
-    i++;
   }
 }
 
@@ -61,6 +59,12 @@ void check_fairness(unsigned int *sum1, unsigned int *sum2) {
   printf("Juego justo\n");
 }
 
+void show_dices(unsigned int *dices) {
+  for (int i = 0; i < SIZE; i++) {
+    printf("%d ", dices[i]);
+  }
+  printf("\n");
+}
 
 int main() {
   dices marta, pablo;
@@ -72,6 +76,11 @@ int main() {
   printf("Pablo\n");
   get_dices(pablo.first_dices, "Primeros dados");
   get_dices(pablo.second_dices, "Segundos dados");
+
+  show_dices(marta.first_dices);
+  show_dices(marta.second_dices);
+  show_dices(pablo.first_dices);
+  show_dices(pablo.second_dices);
 
   get_possibility_matrix(marta.sum, marta.first_dices, marta.second_dices);
   get_possibility_matrix(pablo.sum, pablo.first_dices, pablo.second_dices);
