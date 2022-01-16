@@ -8,5 +8,5 @@ if [ $folder ]; then
   gcc $folder/main.c -o $folder/main.out &&
   $folder/main.out
 else
-  echo "Specify folder, e.g. ./build.sh canguros/ "
+  echo "Specify folder, e.g.\n\t./build.sh canguros/"
 fi
